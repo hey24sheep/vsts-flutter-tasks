@@ -2,13 +2,18 @@
 
 [Flutter](http://flutter.io) build task for [Azure DevOps](https://azure.microsoft.com/fr-fr/services/devops/).
 
+All credit goes to the original author for his awesome work.
+This extension is a custom/updated/maintained fork of Alois Deniel's extension [Github](https://github.com/aloisdeniel/vsts-flutter-tasks)
+
 ## Installation
 
-Installation can be done using [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=aloisdeniel.flutter).
+Installation can be done using [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=hey24sheep.flutter).
 
 ## Source Code
 
-Source code can be found on [Github](https://github.com/aloisdeniel/vsts-flutter-tasks).
+Source code can be found on [Github](https://github.com/hey24sheep/vsts-flutter-tasks).
+
+Original repo : [Github](https://github.com/aloisdeniel/vsts-flutter-tasks).
 
 ## Usage
 
