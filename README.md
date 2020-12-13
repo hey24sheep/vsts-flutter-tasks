@@ -1,6 +1,6 @@
 # Flutter for Azure DevOps
 
-[Flutter](http://flutter.io) build task for [Azure DevOps](https://azure.microsoft.com/fr-fr/services/devops/).
+[Flutter](http://flutter.io) build task for [Azure DevOps](https://azure.microsoft.com/en-gb/services/devops/).
 
 All credit goes to the original author for his awesome work.
 This extension is a custom/updated/maintained fork of Alois Deniel's extension [Github](https://github.com/aloisdeniel/vsts-flutter-tasks)
@@ -41,9 +41,13 @@ Build the given mobile application project. You must call the `Flutter Install` 
 * _(Optional)_. Set `buildName` (like `1.2.3`) that will override the manifest's one.
 * _(Optional)_. Set `buildNumber` (like `12`) that will override the manifest's one.
 * _(Optional)_. Set `buildFlavour` (like `development`) to specify a build flavour. Must match Android Gradle flavor definition or XCode scheme.
-* _(Optional)_. Set `debugMode` if you wish to override the default release mode for the build.
 * _(Optional)_. Set `entryPoint` to override the main entry point file of the application. Default is 'lib/main.dart'.
+* _(Optional)_. Set `verboseMode` if you wish to get detailed verbose log output for diagnoses purposes. Default is `false`.
+* _(Optional)_. Set `debugMode` if you wish to override the default release mode for the build. Default is `false`.
+* _(Optional)_. Set `dartDefine` compile-time variables. Example: "Some_Var=Some_val --dart-define=Some_Var2=Val"
+* _(Optional)_. Set `extraArgs` if you want to pass more official/custom command arguments. Example: "--no-tree-shake-icons --publish-to-play"
 * __(Android)__._(Optional)_. Set `apkTargetPlatform` for the Android platform architecture target: `android-arm` (default), `android-arm64`.
+* __(Android)__._(Optional)_. Set the build mode `splitPerAbi` to compile the code into an APK per target ABI. Otherwise the build will result in a single APK.
 * __(iOS)__._(Optional)_. Set `iosTargetPlatform` for the iOS target: `device` (default), `simulator`.
 * __(iOS)__._(Optional)_. Set `iosCodesign` to configure whenever the bundle odesign the application bundle (only available on device builds, and activated by default). **Warning: you must install a valid certificate before build with the `Install an Apple Certificate`task**
 
@@ -60,7 +64,19 @@ Launch tests and publish a report as build test results.
 * _(Optional)_. Set `generateCodeCoverageReport` to generate code coverage report based on tests in the project. The report file is located in the specified `projectDirectory` in `coverage/lcov.info`.
 * _(Optional)_. Set `concurrency` to specify the number of concurrent test processes to run. Default is `6`.
 
-### command
+### Analyze
+
+![](images/step_analyze.png)
+
+Launch analyze on flutter directory.
+
+* Select the `projectDirectory` that contains the `pubspec.yaml` file.
+* _(Optional)_. Set `pubGet` if you wish to run `pub get` command before analyze. Default is `true`.
+
+
+### Command
+
+![](images/step_command.png)
 
 Launch a Flutter command with custom arguments.
 
@@ -73,7 +89,7 @@ Make sure that you have a `Flutter Install` at the beginning of your definition.
 
 > Can I run a custom Flutter command ?
 
-Yes, right after the `Flutter Install` task, a `FlutterToolPath` environment variable points to the `bin` of the Flutter SDK directory. You just have to use `$(FlutterToolPath)` in your following tasks.
+Yes, right after the `Flutter Install` task, a `FlutterToolPath` environment variable points to the `bin` of the Flutter SDK directory. You just have to use `$(FlutterToolPath)` in your following tasks. Example: "$(FlutterToolPath)/flutter packages get"
 
 > Can I run Dart program ?
 
