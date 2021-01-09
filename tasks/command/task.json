@@ -9,7 +9,7 @@
     "version": {
         "Major": 0,
         "Minor": 2,
-        "Patch": 33
+        "Patch": 34
     },
     "groups": [],
     "instanceNameFormat": "Flutter Command",
@@ -21,6 +21,14 @@
             "required": false,
             "defaultValue": "",
             "helpMarkDown": "Arguments passed to the flutter command."
+        },
+        {
+            "name": "projectDirectory",
+            "type": "string",
+            "label": "Project Directory",
+            "required": false,
+            "defaultValue": "",
+            "helpMarkDown": "Select the `projectDirectory` that contains the `pubspec.yaml` file."
         }
     ],
     "execution": {

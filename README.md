@@ -82,6 +82,17 @@ Launch analyze on flutter directory.
 
 Launch a Flutter command with custom arguments.
 
+* Set `arguments` to the argument string to pass to the flutter command.  Wrap the string in single quotes.
+* _(Optional)_. Select the `projectDirectory` that contains the `pubspec.yaml` file.
+
+e.g. to analyze dependencies to find which ones can be upgraded:
+```
+    - task: FlutterCommand@0
+      displayName: 'FlutterCommand analyze dependencies inc. prereleases'
+      inputs:
+        arguments: 'pub outdated --prereleases'
+```
+
 ## FAQ
 
 
