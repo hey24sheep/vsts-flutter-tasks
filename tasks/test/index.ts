@@ -25,10 +25,23 @@ async function main(): Promise<void> {
     let updateGoldens = task.getBoolInput('updateGoldens', false);
     let concurrency = task.getInput('concurrency', false);
     let canPublishTests = task.getInput('publishTests', false);
+<<<<<<< HEAD
     let canGenerateCodeCoverage = task.getInput("generateCodeCoverageReport", false);
 
     // 5. Running tests
     var results = await runTests(flutterPath, (concurrency ? Number(concurrency) : null), updateGoldens, testName, testPlainName, canGenerateCodeCoverage);
+=======
+    let canGenerateCodeCoverage = task.getBoolInput("generateCodeCoverageReport", false);
+
+    // 5. Running tests
+    var results = await runTests(
+        flutterPath,
+        (concurrency ? Number(concurrency) : null),
+        updateGoldens,
+        testName,
+        testPlainName,
+        canGenerateCodeCoverage);
+>>>>>>> upstream/master
 
     // 6. Publishing tests
     if (canPublishTests) {
@@ -59,7 +72,12 @@ async function publishTests(results: any) {
     publisher.publish([xmlPath], false, "", "", "", true, "VSTS - Flutter");
 }
 
-async function runTests(flutter: string, concurrency?: number, updateGoldens?: boolean, name?: string, plainName?: string, canGenerateCodeCoverage?: boolean) {
+async function runTests(flutter: string,
+    concurrency?: number,
+    updateGoldens?: boolean,
+    name?: string,
+    plainName?: string,
+    canGenerateCodeCoverage?: boolean) {
     let testRunner = task.tool(flutter);
     testRunner.arg(['test', '--pub']);
 
@@ -67,7 +85,7 @@ async function runTests(flutter: string, concurrency?: number, updateGoldens?: b
         testRunner.arg("--update-goldens");
     }
 
-    if(canGenerateCodeCoverage) {
+    if (canGenerateCodeCoverage) {
         testRunner.arg("--coverage");
     }
 
