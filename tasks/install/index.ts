@@ -8,7 +8,7 @@ import * as tool from 'azure-pipelines-tool-lib/tool';
 const FLUTTER_TOOL_NAME: string = 'Flutter';
 const FLUTTER_EXE_RELATIVEPATH = 'flutter/bin';
 const DART_EXE_RELATIVEPATH = 'cache/dart-sdk/bin';
-const FLUTTER_PUB_CACHE_RELATIVEPATH = '.pub-cache/bin';
+const FLUTTER_PUB_CACHE_RELATIVEPATH = 'flutter/.pub-cache/bin';
 const FLUTTER_TOOL_PATH_ENV_VAR: string = 'FlutterToolPath';
 const FLUTTER_PUBCACHE_PATH_ENV_VAR: string = 'FlutterPubCachePath';
 const DART_TOOL_PATH_ENV_VAR: string = 'DartToolPath';
@@ -44,7 +44,7 @@ async function main(): Promise<void> {
 	task.setVariable(FLUTTER_TOOL_PATH_ENV_VAR, fullFlutterPath);
 	
 	// 5.1 Create flutter pub-cache environment variable
-	let fullPubCachePath: string = path.join(fullFlutterPath, FLUTTER_PUB_CACHE_RELATIVEPATH);
+	let fullPubCachePath: string = path.join(toolPath, FLUTTER_PUB_CACHE_RELATIVEPATH);
 	task.debug(`Set ${DART_TOOL_PATH_ENV_VAR} with '${fullPubCachePath}'`);
 	task.setVariable(FLUTTER_PUBCACHE_PATH_ENV_VAR, fullPubCachePath);
 	
