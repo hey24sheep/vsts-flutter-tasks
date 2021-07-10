@@ -1,5 +1,14 @@
 # Flutter for Azure DevOps 
 
+## **NOTICE**
+### **This fork is now a new project [Azure Flutter Tasks](https://github.com/hey24sheep/azure-flutter-tasks). As the original branch of this fork is not maintained and long due for updates.**
+
+### **Users of this extension will have no change effect.**
+
+### **Contributors can create new issues, PRs on the new repo. I will no longer maintain this fork, instead all updates will be made to the new repo.**
+
+<br/>
+
 [Flutter](http://flutter.io) build task for [Azure DevOps](https://azure.microsoft.com/en-gb/services/devops/).
 
 All credit goes to the original author for his awesome work.
